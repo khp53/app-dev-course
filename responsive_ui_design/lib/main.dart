@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_ui_design/box_constrains.dart';
 import 'package:responsive_ui_design/layout_builder.dart';
+import 'package:responsive_ui_design/media_query.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const LayoutBuilderExample(),
+      home: const MediaQueryExample(),
     );
   }
 }
