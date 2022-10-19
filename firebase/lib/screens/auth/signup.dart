@@ -20,9 +20,6 @@ class _SignUPState extends State<SignUP> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Sign Up"),
-      ),
       body: Container(
         margin: const EdgeInsets.all(25),
         child: Column(
@@ -75,6 +72,7 @@ class _SignUPState extends State<SignUP> {
                 var respose = await _firebaseAuthServices.signUp(
                   email.text.trim(),
                   password.text.trim(),
+                  context,
                 );
                 if (respose != null) {
                   // ignore: use_build_context_synchronously

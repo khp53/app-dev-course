@@ -1,4 +1,5 @@
 import 'package:firebase/screens/auth/signup.dart';
+import 'package:firebase/screens/home/home.dart';
 import 'package:firebase/services/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -20,9 +21,6 @@ class _SignInState extends State<SignIn> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Sign In"),
-      ),
       body: Container(
         margin: const EdgeInsets.all(25),
         child: Column(
@@ -75,12 +73,14 @@ class _SignInState extends State<SignIn> {
                 var respose = await _firebaseAuthServices.signIn(
                   email.text.trim(),
                   password.text.trim(),
+                  context,
                 );
                 if (respose != null) {
                   // ignore: use_build_context_synchronously
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                      content: Text("Signed In"),
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => const Home(),
                     ),
                   );
                 }
